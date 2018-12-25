@@ -1,0 +1,68 @@
+*{
+    magin: 0;
+    padding: 0;
+}
+#mineCount{
+    color: red;
+    position: absolute;
+    left: 45%;
+    top: 30px;
+    display: none;
+}
+#outerBox{
+    width: 500px;
+    height: 500px;
+    background: silver;
+    margin: 50px auto;
+    display: none;
+}
+
+#startBtn{
+    border: 1px solid sandybrown;
+    border-radius: 5px;
+    font-size: 25px;
+    padding: 5px;
+    position: absolute;
+    left: 45%;
+    top: 45%;
+}
+#gameover{
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    display: none;
+}
+#win{
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    display: none;
+}
+#close{
+    position: absolute;
+    left: 58%;
+    top: 41%;
+    display: none;
+}
+
+.block{
+    width: 48px;
+    height: 48px;
+    background: cadetblue;
+    border: 1px solid black;
+    box-shadow: 0 0 10px slateblue inset;
+    float: left;
+}
+.show{
+    background:red;
+}
+.num{
+    background: springgreen;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 48px;
+    text-align: center;
+}
+.flag{
+    background:url("../images/mine.jpg");
+}

@@ -1,0 +1,78 @@
+@CHARSET "UTF-8";
+#total {
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	border-style: solid;
+	border-width: 1px;
+	padding: 5px;
+	margin: 5px;
+	background-color: #99ff99;
+	float: left;
+}
+
+.inner {
+	width: 400px;
+	border-style: solid;
+	border-width: 1px;
+	margin: 10px;
+	padding: 10px;
+	float: left;
+}
+#employeeTable {
+	border-spacing: 1px;
+	background: red;
+	margin: 80px auto 10px auto;
+}
+
+th,td {
+	background-color: silver;
+}
+
+#formDiv {
+	width: 250px;
+	border-style: solid;
+	border-width: 1px;
+	margin: 50px auto 10px auto;
+	padding: 10px;
+	background: silver;
+}
+
+#formDiv input {
+	width: 100%;
+	border: none;
+	background: whitesmoke;
+	padding-left: 5px;
+	margin: 0;
+}
+
+#formDiv td{
+	background: silver;
+}
+
+#formDiv button{
+	border: none;
+	background: black;
+	color: #ffffff;
+	opacity: 0.5;
+	padding: 2px 10px;
+	margin-top: 5px;
+}
+#formDiv button:active{
+	background: saddlebrown;
+}
+
+.word {
+	width: 40px;
+}
+
+.inp {
+	width: 200px;
+}

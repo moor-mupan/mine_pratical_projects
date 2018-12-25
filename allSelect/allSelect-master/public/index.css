@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    position: relative;
+}
+
+.max{
+    width: 300px;
+    margin: 100px auto;
+    padding: 30px 0 ;
+    background: skyblue;
+    text-align: center;
+    /*opacity: 0.7;*/
+    border: 1px solid skyblue;
+    border-radius: 20px;
+}
+.button{
+    border: none;
+    padding: 0 5px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.button:active{
+    background: silver;
+    opacity: 0.4;
+}
+
+#send{
+    width: 100px;
+    height: 135px;
+    overflow: auto;
+    color: red;
+    background: silver;
+    border:1px solid silver;
+    border-radius: 20px;
+    padding-left: 20px;
+    position: absolute;
+    top: 0;
+    left: 834px;
+    display: none;
+}
+
+#remove{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px 0 5px;
+}
+
+#remove:active{
+    background: springgreen;
+}

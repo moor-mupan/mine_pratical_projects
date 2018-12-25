@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#box1{
+    width: 100px;
+    height: 100px;
+    background: black;
+    position: absolute;
+}
+#box2{
+    width: 200px;
+    height: 200px;
+    background: saddlebrown;
+    position: absolute;
+}
+img{
+    position: absolute;
+}

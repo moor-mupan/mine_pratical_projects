@@ -1,0 +1,405 @@
+/*
+    公共样式
+*/
+body,ul,li,div,h1,h2,h3,h4,span,input,img,section{
+    margin: 0;
+    padding: 0;
+}
+
+.w{
+    width: 800px;
+    margin:0 auto;
+}
+
+.hide{
+    display:none;
+}
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
+li{
+   list-style: none;
+}
+
+input{
+    border:none;
+}
+
+/*
+    页面样式
+*/
+.MAX_BOX{
+    height: 600px;
+}
+
+header{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: #1a91ec;
+    position: relative;
+}
+
+header .header_one{
+    width: 33%;
+    padding-right: 80px;
+}
+
+header .header_one .header_input input{
+    width: 100px;
+    height: 24px;
+    line-height: 24px;
+    margin-top: 15px;
+    padding-left: 10px;
+    background-color:#1a91ec;
+    background: url("../images/0048_03.jpg")90% center no-repeat;
+    border:1px solid #cccccc;
+    border-radius: 45px;
+    color: #ffffff;
+}
+/*弹出的搜索框*/
+header .header_one .search_input{
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 9999;
+    background-color: #1a91ec;
+}
+
+header .header_one .search_input input{
+    width: 180px;
+    height: 24px;
+    line-height: 24px;
+    text-indent: 5px;
+    padding-left: 10px;
+    background:#ffffff;
+    border:1px solid #cccccc;
+    border-radius: 45px;
+    position: absolute;
+    top:18px;
+    left: 20px;
+    z-index: 9999;
+}
+/*关闭图像* */
+header .header_one .search_input img{
+    position: absolute;
+    top:22px;
+    left: 175px;
+    z-index: 9999;
+}
+
+input::-webkit-input-placeholder{
+    color: #cccccc;
+}
+
+header .header_two{
+    width: 34%;
+    paddin: 0 50px;
+    /*background: url("../images/0044_03.jpg")15% bottom no-repeat;*/
+}
+
+header .header_two ul li img {
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+}
+
+header .header_thr{
+    width: 33%;
+    height: 60px;
+    padding-left: 140px;
+    padding-right: 30px;
+    background-color:#3448a1;
+}
+
+header .header_thr .min_box img{
+    width: 15px;
+    height: 2px;
+}
+
+section .left{
+    width: 200px;
+    height: 540px;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+section .left .left_list{
+    width: 180px;
+    height: 370px;
+    background:url("../images/0011_03.jpg")10% 40% no-repeat #ffffff;
+    position: absolute;
+    z-index: 5;
+}
+
+section .left .left_list h3{
+    color: #000;
+    padding-left:10px;
+    background: url("../images/0031.jpg")97% center no-repeat;
+}
+
+section .left .left_list h3:hover{
+    color: #1a91ec;
+}
+
+section .left .left_list span{
+    display: inline-block;
+    width: 180px;
+    overflow: hidden;
+    padding-left: 10px;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+section .left .left_list li{
+    width: 180px;
+    margin-top: 12px;
+    padding-left: 50px;
+}
+section .left .left_list .fuli{
+    margin-top: 14px;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding-top:13px;
+    padding-bottom: 13px;
+}
+
+/*设置滚动条*/
+section .left::-webkit-scrollbar{
+    display: none;
+    width: 6px;
+    height: 20%;
+}
+
+section .left::-webkit-scrollbar-thumb{
+    background-color: #c7ddef;
+}
+
+section .left .contact_ul li{
+    height:60px;
+    width: auto;
+    line-height: 60px;
+}
+
+section .left .contact_ul li:hover{
+    background: #c7ddef;
+}
+
+section .left .contact_ul li img{
+    margin-left: 30px;
+}
+
+section .left .contact_ul li span{
+    margin-left: 10px;
+}
+
+/*
+    弹出搜索区不在left中
+*/
+section .mid_search{
+    width: 260px;
+    height: 540px;
+    position: absolute;
+    z-index: 10;
+}
+
+section .mid_search img{
+    display: inline-block;
+    width: 198px;
+    height: 540px;
+    border-right: 2px solid #cccccc;
+}
+
+section .right{
+     width: 75%;
+     height: 540px;
+    padding-left: 0;
+    padding-right: 0;
+ }
+
+section .right img{
+    display: inline-block;
+    width: 100%;
+    height: 540px;
+}
+
+section .right .right_list{
+    width: 120px;
+    height: 200px;
+    margin-right: 0;
+    background: #ffffff;
+    border:1px solid #cccccc;
+    box-shadow: 1px 1px 1px;
+    position: absolute;
+    right: 0;
+}
+
+section .right .right_list li{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
+}
+
+section .right .right_list li:hover{
+    background: #cccccc;
+}
+
+section .right .right_list .right_list_one {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #cccccc;
+}
+
+/*
+    页面2开始
+*/
+
+.contact_title{
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.contact_title>ul{
+    border-bottom: 1px solid #cccccc;
+}
+
+.contact_title>ul>li{
+    margin-left: 25px;
+}
+
+.contact_title .active{
+    border-bottom: 2px solid #1a91ec;
+}
+
+.contact_title>ul>li:hover{
+    border-bottom: 2px solid #1a91ec;
+}
+
+.contact_group{
+    width: 200px;
+    margin-top: 10px;
+}
+
+.contact_group .friend_group>li{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 40px;
+    font-size: 12px;
+    background: url("../images/0051_03.jpg")13% center no-repeat;
+}
+
+.contact_group .friend_group>li:hover{
+    background:url("../images/0050_03.jpg")13% center no-repeat #cccccc;
+}
+
+.friend_list li{
+    height: 60px;
+    line-height: 60px;
+    padding-left: 20px;
+}
+
+.friend_list li span{
+    margin-left: 10px;
+}
+
+.friend_list li:hover{
+    background: #cccccc;
+}
+
+/*
+    页面3
+*/
+.great{
+    height: 60px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.great p{
+    width: 120px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    /*margin:0 auto;*/
+    position: absolute;
+    top: 17px;
+    left: 40px;
+    color: #ffffff;
+    background:url("../images/0041.jpg")70% center no-repeat #0188fb;
+}
+
+.great p:hover{
+    background-color: #5bc0de;
+}
+
+.my_file li{
+    height: 42px;
+    line-height: 42px;
+    padding-left: 70px;
+    background: url("");
+}
+
+.my_file .active{
+    background:url("../images/0038.jpg")24% center no-repeat #c0c0c0;
+}
+
+.my_file .active:hover{
+    background:url("../images/0038.jpg")24% center no-repeat #c0c0c0;
+}
+
+.my_file .recently_viewed{
+    background:url("../images/0039.jpg")24% center no-repeat;
+}
+
+.my_file .cloud{
+    background:url("../images/0040.jpg")24% center no-repeat;
+}
+
+.my_file li:hover{
+    background-color: #cccccc;
+}
+
+
+
+
+body{
+    background: #c0c0c0;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+/*section .left::-webkit-scrollbar
+{
+    width: 10px;
+    !*height: 50px;*!
+    background-color: #F5F5F5;
+}
+
+!*定义滚动条轨道 内阴影+圆角*!
+section .left::-webkit-scrollbar-track
+{
+    !*-webkit-box-shadow: inset 0 0 6px rgba(5,5,5,5.3);*!
+    border-radius: 30px;
+    background-color: #cccccc;
+}*/
+
+/*div形状设置
+.sanjiao{
+    width: 0;
+    height: 0;
+    border-top: 57px solid #fcf921;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    position: absolute;
+}*/

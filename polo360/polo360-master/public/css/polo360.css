@@ -1,0 +1,308 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url('../images/fb.png');
+	background-repeat: repeat-x;
+}
+
+/*解决高度塌陷问题*/
+.clearfix:before,
+.clearfix:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.w{
+	width: 940px;
+	margin: 0 auto;
+}
+
+.header{
+	/*background-color: #bfa;*/
+	padding-top: 37px;
+	padding-bottom: 46px;
+}
+
+.logo{
+	margin-left: 15px;
+	display: inline-block;
+}
+
+.nav{
+	/*去除项目符号*/
+	list-style: none;
+	float: right;
+	margin-top: 22px;
+}
+
+.nav li{
+	float: left;	
+}
+
+.nav a{
+	color: #666666;
+	font: bold 14px Georgia;
+	/*去除下划线*/
+	text-decoration: none;
+}
+
+.nav a:hover{
+	color: #A1A1A1;
+	text-decoration: underline;
+}
+.nav p {
+    color: #b7b7b7;
+    font: 11px tahoma;
+}
+
+.nav li{
+	padding:0 10px 10px 10px;
+	border-left: 1px #D6D6D6 dotted;
+}
+/*header结束*/
+.banner{
+	height: 356px;
+	background: url('../images/banner-bg.png') no-repeat bottom center;
+	position: relative;
+}
+
+.pointerDiv{
+	position: absolute;
+	left: 15px;
+	top: 314px;
+}
+
+.pointerDiv a{
+	/*display: inline-block;*/
+	float: left;
+	width: 17px;
+	height: 17px;
+	margin-left: 4px;
+	background: url('../images/111.png') center;
+	background-size: 17px 17px;
+}
+
+.pointerDiv .active,
+.pointerDiv a:hover{
+	background: url('../images/2222.png') no-repeat center;
+}
+/*banner结束*/
+
+.content{
+	background: url('../images/line.png') no-repeat bottom center;
+}
+.content h1{
+	text-align: center;
+	font: bold 24px georgia;
+	padding: 6px 0 20px 0;
+	background: url('../images/line.png') no-repeat bottom center;
+	
+	margin-bottom: 38px;
+}
+
+.content .pl,.content .cs,.content .uc{
+	width: 300px;
+	/*height: 100px;*/
+	float: left;
+}
+
+.content .cs{
+	margin: 0 20px;
+}
+
+.content h2{
+	color: #11719E;
+	font: 21px Georgia;
+}
+
+.content .p1{
+	color: #8C8C8C;
+	font: 12px Helvetica;
+}
+
+.content .imgDiv{
+	width: 299px;
+	height: 190px;
+	background: url('../images/img-bg.png') no-repeat;
+	margin: 16px 0px 10px 0;
+	text-align: center;
+	padding-top: 12px;
+}
+
+.content .p2{
+	height: 92px;
+	color: #3E3E3E;
+	font: 13px helvetica ;
+}
+
+.content .lm{
+	display: block;
+	width: 163px;
+	height: 40px;
+	background: url('../images/button.png') no-repeat;
+	margin-bottom: 35px;
+}
+
+/*contact*/
+.contact .sc,.contact .co,.contact .nu{
+	float: left;
+	width: 300px;
+	height: 100px;
+	/*background-color: #016999;*/
+}
+
+.contact .co{
+	margin: 0 20px;
+}
+
+.contact .txt{
+	width: 276px;
+	height: 33px;
+	background: url('../images/text1.png') no-repeat;
+	border-radius: 5px;
+	padding: 0 10px;
+	margin-bottom: 16px;
+	/*解决IE6问题*/
+	_background-attachment: fixed;
+}
+
+.contact .tarea{
+	width: 276px;
+	height: 105px;
+	background: url('../images/tarea.png') no-repeat;
+	border-radius: 5px;
+	overflow: auto;
+	/*文本域不可变*/
+	resize: none;
+	padding: 10px;
+	margin: 0;
+	_background-attachment: fixed;
+}
+
+.contact .btn1{
+	width: 163px;
+	height: 32px;
+	background: url('../images/send.png') no-repeat;
+	padding: 0;
+	margin: 15px 0 23px 0;
+	border: 0;
+}
+
+.contact h2{
+	color: #444444;
+	font: 18px/1 georgia;border-bottom: 1px dashed #D3D3D3;
+	padding: 44px 0 10px 0;
+	margin-bottom: 15px;
+}
+
+.sc .p1{
+	color: #444444;
+	font: 12px/1 helvetica;
+	margin-top: 10px;
+}
+/*contact结束*/
+
+/*左侧*/
+.sc .icon{
+	/*去除空格*/
+	font-size: 0;
+	margin-top: 4px;
+}
+.sc .icon a{
+	margin-right: 6px;
+}
+
+.sc .nl{
+	padding: 38px 0 15px 0;
+	font: bold 18px/1 "gill sans mt";
+	margin-bottom: 0;
+}
+
+.sc .txt{
+	margin: 10px 0 10px 0;
+}
+
+.btn2{
+	width: 163px;
+	height: 32px;
+	background: url('../images/sub.png') no-repeat;
+	padding: 0;
+	margin: 6px 0 23px 0;
+	border: 0;
+}
+
+/*右侧*/
+.nu img{
+	float: left;
+	margin-right: 8px;
+}
+
+.nu .p1{
+	color: #8C8C8C;
+	font: 12px Helvetica;	
+	height: 58px;
+	border-bottom: 1px dotted #D3D3D3;
+	margin-bottom: 14px;
+	padding-bottom: 9px;
+}
+
+
+.contact .btn3{
+	width: 163px;
+	height: 32px;
+	background: url('../images/visit.png') no-repeat;
+	padding: 0;
+	margin: 0 23px 0 0;
+	border: 0;
+}
+
+.no-margin{
+	margin-bottom: 0px;
+}
+
+/*footer*/
+.footer{
+	/*position: fixed ;*/
+	position: relative;
+	top: 300px;
+	height: 173px;
+	background-position: bottom center;
+	background-color: #333333;
+	border-top: 10px solid#4C4C4C;
+}
+
+.footer{
+	color: #999999;	
+	font: 11px Helvetica;
+}
+
+.footer a{
+	color: #999999;	
+	font: 11px Helvetica;
+	text-decoration: none;
+}
+
+.footer a:hover{
+	color: #D3D3D3;
+	font: 11px helvetica;
+}
+
+.footer .copy{
+	float: right;
+}
+
+.footer .w{
+	padding-top: 18px ;
+}
+
+.footer p{
+	,margin-left: 8px;
+	margin-right: 23px;
+	margin-bottom: 6px;
+}
+
+

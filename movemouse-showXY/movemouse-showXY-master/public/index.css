@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#move{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    /*background: white;*/
+    opacity: 0.9;
+    border: 1px solid black;
+}
+
+#showBox{
+    width: 150px;
+    height:20px;
+    text-align: center;
+    border: 1px solid black;
+    background: black;
+    color: white;
+    position: absolute;
+}
