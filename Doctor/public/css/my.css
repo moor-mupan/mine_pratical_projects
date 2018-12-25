@@ -1,0 +1,366 @@
+/*样式重置*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*公共样式*/
+h1,h2,h3,h4{
+    font-family: 'Oswald', sans-serif;
+}
+
+.clearfix :after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
+.hide{
+    display: none;
+}
+
+@media screen and (min-width: 520px) {
+    body{
+    background: url("../images/banner-bg.jpg")center bottom no-repeat ;
+    background-attachment: fixed;
+    background-size: 1240px;
+}
+}
+
+@media screen and (max-width: 520px){
+    body{
+        background: url("../images/banner-bg.jpg")center bottom no-repeat ;
+        background-attachment: fixed;
+        background-size: 520px;
+    }
+}
+
+/*header开始*/
+#nav{
+    background: #0D8BBD;
+    filter: alpha(opacity=90);
+    padding: 12px 0;
+    opacity: 0.9;
+    border: none;
+}
+
+#nav a{
+    color: #FFFFFF;
+}
+
+#nav a:hover{
+    color: #000000;
+}
+
+#doctor{
+     /*font-size: 30px;*/
+     font:italic bold 35px Georgia, serif;
+     color: #1a2129;
+     padding-top: 5px;
+}
+
+.doctor_list{
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    word-spacing: 1px;
+    letter-spacing: 0.1px;
+    color: #cccccc;
+}
+
+.doctor_list #first_home{
+    color: #286090;
+}
+/*header结束*/
+
+@media screen and (min-width: 520px){
+    #banner h3{
+        width: 350px;
+        color: #FFFFFF;
+        font-size: 20px;
+        line-height: 1.0em;
+        text-transform:uppercase;
+        margin: 0 auto;
+        padding: 20px 0;
+        background: rgba(0, 161, 203, 0.9);
+        filter:alpha(opacity=50);
+        opacity:0.5;
+    }
+    #icon_first i{
+        display: inline-block;
+    }
+}
+@media  screen and (max-width: 520px){
+    #banner h3{
+        width: 180px;
+        color: #FFFFFF;
+        font-size: 10px;
+        line-height: 1.0em;
+        text-transform:uppercase;
+        margin: 0 auto;
+        padding: 10px 0;
+        background: rgba(0, 161, 203, 0.9);
+        filter:alpha(opacity=50);
+        opacity:0.5;
+    }
+    #icon_first i{
+        display: none;
+    }
+}
+
+#banner{
+    position: relative;
+}
+
+#basics{
+    height: 73px;
+    background: #FFFFFF;
+    filter: alpha(opacity=0);
+    opacity: 0.0;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    z-index: 999999;
+}
+
+#service{
+    color: #ffffff;
+    background: #005f8d;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.service_text_list{
+    margin-top: 50px;
+}
+
+.service_text_list h3,
+.service_text_list h4{
+    line-height: 30px;
+}
+
+.service_text_list_one,
+.service_text_list_thr{
+    background: rgba(0, 161, 203, 0.64);
+    padding: 20px 20px 30px 20px;
+}
+.service_text_list_two,
+.service_text_list_four{
+    background: #269abc;
+    padding: 20px 20px 30px 20px;
+}
+.service_text_list_one:hover,
+.service_text_list_thr:hover,
+.service_text_list_two:hover,
+.service_text_list_four:hover{
+    background: rgba(0, 43, 54, 0.89);
+}
+
+.service_text i{
+    width: 90px;
+    height: 90px;
+    padding-top: 30px;
+    border: 1px solid #005f8d;
+    border-radius: 50%;
+    color: #005f8d;
+    background: #ffffff;
+}
+
+.service_text i:hover{
+    -moz-transform: rotate(360deg);
+    -moz-transition: all 0.2s linear 0s;
+}
+
+#about{
+    background: #ffffff;
+    padding: 50px 0 50px 0;
+}
+
+.top{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#about p{
+    font-size: 15px
+;
+    color: #858585;
+    line-height:28px;
+}
+
+@media screen and (min-width: 500px){
+    #about img{
+        width: 550px;
+    }
+    #about .text{
+        padding-left: 70px;
+    }
+}
+@media screen and (max-width: 500px){
+    #about img{
+        width: 280px;
+    }
+    #about .text{
+        padding-left:20px;
+    }
+}
+
+#facilities{
+    color: #ffffff;
+    background: #337ab7;
+    text-align: center;
+    padding: 50px 0 30px 0;
+}
+
+#facilities .img_box{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border:none;
+    border-radius: 0%;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+#facilities .img_box_one:hover,
+#facilities .img_box_two:hover,
+#facilities .img_box_thr:hover,
+#facilities .img_box_four:hover,
+#facilities .img_box_five:hover,
+#facilities .img_box_six:hover,
+#facilities .img_box_seven:hover,
+#facilities .img_box_eight:hover{
+    /*animation:myfirst 0.5s;*/
+    transform: scale(1.2,1.2);
+}
+
+#facilities .img_box .caption{
+    /*background:rgba(0,45,42,0.5);*/
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#facilities .one:hover, #facilities .two:hover,
+#facilities .thr:hover, #facilities .four:hover,
+#facilities .five:hover, #facilities .six:hover,
+#facilities .seven:hover, #facilities .eight:hover{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #000000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+#team{
+padding-top: 50px;
+background: #ffffff;
+}
+
+#team p{
+color: gray;
+}
+
+#team .img_border{
+text-align: center;
+border:none;
+}
+
+#contact{
+    color: #ffffff;
+    background: #2e6da4;
+    filter: alpha(opacity=95);
+    opacity: 0.95;
+    padding:50px 0 30px 0;
+}
+
+#contact input,
+#contact textarea{
+    color: #000000;
+    line-height: 20px;
+    border:none;
+    border-radius: 0;
+    padding: 20px 5px;
+    margin-bottom: 25px;
+}
+
+#contact button{
+    display: block;
+    border: none;
+    border-radius: 0%;
+    background: #0D3349;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+#contact .tel{
+    padding: 0 20px;
+}
+
+#contact .five_icon{
+    text-align: center;
+}
+
+#contact .five_icon i{
+    padding: 5px;
+    margin:0 10px;
+    color: #0D3349;
+    background: grey;
+}
+
+#copy .navbar{
+    background: #000000;
+    margin-bottom: 0;
+    border: none;
+    color: gray;
+    border-radius: 0%;
+    text-align: center;
+    line-height: 30px;
+    padding: 30px 0 10px 0;
+}
+
+
+/*
+.banner img{
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+/*container*/
