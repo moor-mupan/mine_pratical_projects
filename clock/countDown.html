@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>canvas倒计时特效</title>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+
+        #countDown {
+            border: 1px solid #000000;
+            box-shadow: 1px 1px 20px #0000FF;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="countDown"></canvas>
+
+<script type="text/javascript">
+    let digit = [
+        [
+            [0, 0, 1, 1, 1, 0, 0],
+            [0, 1, 1, 0, 1, 1, 0],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 1, 1, 0, 1, 1, 0],
+            [0, 0, 1, 1, 1, 0, 0]
+        ],//0
+        [
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 1, 1, 1, 1, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [1, 1, 1, 1, 1, 1, 1]
+        ],//1
+        [
+            [0, 1, 1, 1, 1, 1, 0],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 1, 1, 0, 0, 0],
+            [0, 1, 1, 0, 0, 0, 0],
+            [1, 1, 0, 0, 0, 0, 0],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1]
+        ],//2
+        [
+            [1, 1, 1, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 1, 1, 1, 0, 0],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 1, 1, 1, 1, 1, 0]
+        ],//3
+        [
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 1, 1, 1, 0],
+            [0, 0, 1, 1, 1, 1, 0],
+            [0, 1, 1, 0, 1, 1, 0],
+            [1, 1, 0, 0, 1, 1, 0],
+            [1, 1, 1, 1, 1, 1, 1],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 1, 1, 1, 1]
+        ],//4
+        [
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 0, 0, 0, 0, 0],
+            [1, 1, 0, 0, 0, 0, 0],
+            [1, 1, 1, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 1, 1, 1, 1, 1, 0]
+        ],//5
+        [
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 1, 1, 0, 0, 0],
+            [0, 1, 1, 0, 0, 0, 0],
+            [1, 1, 0, 0, 0, 0, 0],
+            [1, 1, 0, 1, 1, 1, 0],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 1, 1, 1, 1, 1, 0]
+        ],//6
+        [
+            [1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 1, 1, 0, 0, 0],
+            [0, 0, 1, 1, 0, 0, 0],
+            [0, 0, 1, 1, 0, 0, 0],
+            [0, 0, 1, 1, 0, 0, 0]
+        ],//7
+        [
+            [0, 1, 1, 1, 1, 1, 0],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 1, 1, 1, 1, 1, 0],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 1, 1, 1, 1, 1, 0]
+        ],//8
+        [
+            [0, 1, 1, 1, 1, 1, 0],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [1, 1, 0, 0, 0, 1, 1],
+            [0, 1, 1, 1, 0, 1, 1],
+            [0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 1, 1, 0, 0, 0, 0]
+        ],//9
+        [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 1, 1, 0],
+            [0, 1, 1, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 1, 1, 0],
+            [0, 1, 1, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+        ]//:
+    ];
+    let WIDTH = document.body.clientWidth;
+    let HEIGHT = document.body.clientHeight;
+    let R = 6;
+    let MYLEFT = (WIDTH - (30 * 3 + 9 * 2) * R) / 2;
+    let MYTOP = 100;
+    let time = new Date(2018, 11, 28, 0, 0, 0);  // 距离现在最多不能超过4天  2018,12,16
+    let ballColor = ['#98F432', '#6976F4', 'blue', 'pink', 'green', '#DD2B48', 'black', '#f39900', '#EA77F3', '#636D2D'];
+    let balls = [];     //存放运动的小球
+
+    let countDown = document.getElementById('countDown');
+    countDown.width = WIDTH;
+    countDown.height = HEIGHT;
+    let ctx = countDown.getContext('2d');
+
+    let curTime = getTimeVal();
+    setInterval(() => {
+        render(ctx);
+        isChange();
+    }, 30);
+
+    function getTimeVal() {    //得到时间差
+
+        let curTime = new Date();
+        let ret = time.getTime() - curTime.getTime();
+        ret = Math.round(ret / 1000);
+
+        return ret >= 0 ? ret : 0;
+    }
+
+    function renderDigit(x, y, ctx, num) {    //根据数组渲染出数字
+
+        for (let i = 0; i < digit[num].length; i++) {
+            for (let j = 0; j < digit[num][i].length; j++) {
+
+                //  如果当前位置为1则绘制圆球
+                if (digit[num][i][j] === 1) {
+                    //r+1是为了留一定的间隔
+                    ctx.beginPath();
+                    // ctx.fillStyle = ballColor[Math.floor(Math.random() * 10)];
+                    ctx.fillStyle = '#7a81db';
+                    ctx.arc(x + j * 2 * (R + 1) + (R + 1), y + i * 2 * (R + 1) + (R + 1), R, 0, 2 * Math.PI, false);
+                    ctx.closePath();
+
+                    ctx.fill();
+                }
+            }
+        }
+    }
+
+    function addBall(x, y, num) {    //得到将运动的小球的balls数组
+
+        for (let i = 0; i < digit[num].length; i++) {
+            for (let j = 0; j < digit[num][i].length; j++) {
+                if (digit[num][i][j] === 1) { //等于1时绘制小球
+                    let ballObj = {     //每个小球运动需要的参数信息
+                        x: x + j * 2 * (R + 1) + (R + 1),
+                        y: y + i * 2 * (R + 1) + (R + 1),
+                        g: 1.5 + Math.random(),
+                        vx: -Math.random() * 10,
+                        vy: -5,
+                        color: ballColor[Math.floor(Math.random() * ballColor.length)]
+                    };
+                    balls.push(ballObj);
+                }
+            }
+        }
+    }
+
+    function isChange() {     //判断小球所在数字是否变化 变化了就将小球添加到addBall中
+
+        //得到下一秒的时间差s
+        let nextTime = getTimeVal();
+        let nextH = parseInt(nextTime / 3600);
+        let nextM = parseInt((nextTime - nextH / 3600) / 60);
+        let nextS = nextTime % 60;
+        let curH = parseInt(curTime / 3600);
+        let curM = parseInt((curTime - curH / 3600) / 60);
+        let curS = curTime % 60;
+
+        if (nextTime != curTime) {
+            if (parseInt(nextH / 10) != parseInt(curH / 10)) {
+                addBall(MYLEFT + (R + 1), MYTOP, parseInt(curH / 10));
+            }
+            if (parseInt(nextH % 10) != parseInt(curH % 10)) {
+                addBall(MYLEFT + 15 * (R + 1), MYTOP, parseInt(curH % 10));
+            }
+
+            if (parseInt(nextM / 10) != parseInt(curM / 10)) {
+                addBall(MYLEFT + 39 * (R + 1), MYTOP, parseInt(curM / 10));
+            }
+            if (parseInt(nextM % 10) != parseInt(curM % 10)) {
+                addBall(MYLEFT + 54 * (R + 1), MYTOP, parseInt(curM % 10));
+            }
+
+            if (parseInt(nextS / 10) != parseInt(curS / 10)) {
+                addBall(MYLEFT + 78 * (R + 1), MYTOP, parseInt(curS / 10));
+            }
+            if (parseInt(nextS % 10) != parseInt(curS % 10)) {
+                addBall(MYLEFT + 93 * (R + 1), MYTOP, parseInt(curS % 10));
+            }
+
+            curTime = nextTime;
+        }
+        runBall()
+    }
+
+    function runBall() {    //小球运动
+        for (let i = 0; i < balls.length; i++) {
+            balls[i].x += balls[i].vx;
+            balls[i].y += balls[i].vy;
+            balls[i].vy += balls[i].g;
+
+            if (balls[i].y >= HEIGHT - R) {
+                balls[i].y = HEIGHT - R;
+                balls[i].vy = -balls[i].vy * 0.75;
+            }
+        }
+        var cnt = 0;
+        for (var i = 0; i < balls.length; i++) {
+            if (balls[i].x + R > 0 && balls[i].x - R < WIDTH) {
+                balls[cnt++] = balls[i];
+            }
+        }
+
+        while (balls.length > cnt) {
+            balls.pop();
+        }
+    }
+
+    function render(ctx) {    //渲染函数
+
+        //时间差  单位 秒S
+        let timeDifference = (time.getTime() - new Date().getTime()) / 1000;
+        //1970/01/01  距离现在的毫秒数  getTime()
+
+        let hours = parseInt(timeDifference / 3600);
+        let minute = parseInt((timeDifference - hours * 3600) / 60);
+        let second = parseInt(timeDifference % 60);
+
+        //清除画布内容
+        ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+        renderDigit(MYLEFT, MYTOP, ctx, parseInt(hours / 10));
+        renderDigit(MYLEFT + 15 * (R + 1), MYTOP, ctx, parseInt(hours % 10));
+        renderDigit(MYLEFT + 30 * (R + 1), MYTOP, ctx, 10); //10代表：
+        renderDigit(MYLEFT + 39 * (R + 1), MYTOP, ctx, parseInt(minute / 10));
+        renderDigit(MYLEFT + 54 * (R + 1), MYTOP, ctx, parseInt(minute % 10));
+        renderDigit(MYLEFT + 69 * (R + 1), MYTOP, ctx, 10); //10代表：
+        renderDigit(MYLEFT + 78 * (R + 1), MYTOP, ctx, parseInt(second / 10));
+        renderDigit(MYLEFT + 93 * (R + 1), MYTOP, ctx, parseInt(second % 10));
+
+        ctx.font = "14px Arial";
+        // ctx.fillStyle = ballColor[Math.floor(Math.random() * ballColor.length)];
+        ctx.fillStyle = 'black';
+        ctx.fillText('距离' + time.getDate() + '号' + time.getHours() + '时' + time.getMinutes() + '分' + time.getSeconds()
+            + '秒还有' + hours + '小时' + minute + '分' + second + '秒', 100, 60);
+
+        //生成小球
+        for (let i = 0; i < balls.length; i++) {
+            ctx.fillStyle = balls[i].color;
+
+            ctx.beginPath();
+            ctx.arc(balls[i].x, balls[i].y, R, 0, 2 * Math.PI, false);
+            ctx.closePath();
+            ctx.fill();
+        }
+    }
+</script>
+</body>
+</html>

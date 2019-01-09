@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>时钟</title>
+		<style type="text/css">
+			#clock{
+				margin:200px auto;
+				display: block;
+				border: 1px solid #DDDDDD;
+				box-shadow: 1px 1px 20px #000000;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="clock" width="600" height="600"></canvas>
+		
+		<script type="text/javascript">
+			
+			let clock = document.getElementById('clock');
+			let ctx = clock.getContext('2d');
+			
+			// 获取canvas宽高
+			let cw = ctx.canvas.width;
+			let ch = ctx.canvas.height;
+			let r = cw/2;	//圆半径
+				
+			let rem = cw / 200;		//计算时钟变大变小的比例
+		
+			//绘制时钟圆
+			function myClock(){
+				ctx.save();
+				
+				//设置坐标轴中心点
+				ctx.translate(r,r);
+				
+				ctx.beginPath();
+				ctx.lineWidth = 6*rem; 	//外圆线宽
+				ctx.arc(0,0,r - ctx.lineWidth/2,0,2*Math.PI,false);
+				
+				ctx.stroke();
+				
+				//绘制数字	canvas绘制圆时从0度角既数字3处开始绘制
+				let number = [3,4,5,6,7,8,9,10,11,12,1,2];
+				number.forEach((num,i)=>{
+					
+					let R = r - 30*rem; //数字圆半径
+					
+					let x = Math.cos(Math.PI/6 * i) * R;
+					let y = Math.sin(Math.PI/6 * i) * R;
+					
+					//设置文本居中
+					ctx.textAlign = 'center';
+					ctx.textBaseline = 'middle';
+					//设置文本大小
+					ctx.font = 16*rem+'px bold Arial';
+					
+					ctx.beginPath();
+					ctx.fillText(num,x,y);	//绘制文本			
+					
+				});
+				
+				let R1 = r - 15*rem; //小点圆半径
+				
+				//一分为60秒	绘制60个点
+				for(let i=0; i<60; i++){
+					
+					let x1 = Math.cos(2*Math.PI/60 * i) * R1;
+					let y1 = Math.sin(2*Math.PI/60 * i) * R1;
+					
+					ctx.beginPath();
+					//数字边上的点大 , 其余点小
+					if(i%5 === 0){
+						ctx.fillStyle = '#000'
+						ctx.arc(x1,y1,2*rem,0,2*Math.PI,false);
+					}else{
+						ctx.fillStyle = '#aaa'
+						ctx.arc(x1,y1,1*rem,0,2*Math.PI,false);
+					}
+					ctx.fill();
+				}
+			}
+			
+			//绘制时针
+			function hours(hour,minute){
+				
+				ctx.save(); //保存当前绘图环境
+				ctx.beginPath();
+				let rad = 2*Math.PI / 12 * (hour + minute/60);
+				ctx.rotate(rad); 	//旋转时针 -- 先设置才会生效
+				
+				ctx.moveTo(0,10);
+				ctx.lineTo(0,-(r / 2));
+				ctx.lineCap = 'round';   //两端为圆边
+				
+				ctx.stroke();
+				ctx.restore(); //返回保存前的环境
+			}
+			
+			//绘制分针
+			function minute(minute){
+				
+				ctx.save(); //保存当前绘图环境
+				ctx.beginPath();
+				let rad = 2*Math.PI / 60 * minute;
+				ctx.rotate(rad); 	//旋转时针 -- 先设置才会生效
+				
+				ctx.moveTo(0,10);
+				ctx.lineTo(0,-r+30*rem);
+				ctx.lineWidth = 4*rem;
+				ctx.lineCap = 'round';   //两端为圆边
+				ctx.strokeStyle = '#004444';
+								
+				ctx.stroke();
+				ctx.restore(); //返回保存前的环境
+			}
+			
+			//绘制秒针
+			function second (second){
+				
+				ctx.save(); //保存当前绘图环境
+				ctx.beginPath();
+				let rad = 2*Math.PI / 60 * second;
+				ctx.rotate(rad); 	//旋转时针 -- 先设置才会生效
+				
+				ctx.moveTo(2,10*rem);
+				ctx.lineTo(2,-r/4*rem);
+				ctx.lineTo(1,-r+15*rem);
+				ctx.lineTo(-1,-r+15*rem);
+				ctx.lineTo(-2,-r/4*rem);
+				ctx.lineTo(-2,10*rem);
+				
+				ctx.lineWidth = 1*rem;
+				ctx.lineCap = 'round';   //两端为圆边
+				ctx.fillStyle = '#008800';
+				ctx.lineJoin="round";		//线条连接处为圆角
+				
+				ctx.fill();	
+				ctx.restore(); //返回保存前的环境
+			}
+			
+			//绘制中心点
+			function point(){
+				ctx.beginPath();
+				ctx.arc(0,0,4*rem,0,2*Math.PI,false);
+				ctx.fillStyle = '#FFF';
+				ctx.fill();
+			}
+			
+			//时钟运行
+			function runClock(){
+				//清除画布内容
+				ctx.clearRect(0,0,2*r,2*r);
+				
+				//获取当前时间
+				let now = new Date;
+				
+				let hour = now.getHours();
+				let minutes = now.getMinutes();
+				let seconds = now.getSeconds();
+				
+				myClock();
+				hours(hour,minutes);
+				minute(minutes);
+				second(seconds);
+				point();	
+				
+				//重置
+				ctx.restore();
+			}
+			
+			runClock();
+			setInterval(runClock,1000);
+
+		</script>
+	</body>
+</html>
